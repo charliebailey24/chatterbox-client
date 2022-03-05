@@ -7,13 +7,24 @@ var FormView = {
   $form: $('form'),
 
   initialize: function() {
-    FormView.$form.on('submit', FormView.handleSubmit);
+    FormView.$form.on('submit', FormView.handleSubmit); // jquery 'on' method -- means on submit, we will run handlesubmit method
   },
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    console.log($(this));
+    let obj = {
+      username: App.username,
+      text: $('#message').val(),
+      roomname: $('#rooms select').val()
+    };
+    Parse.create(obj);
+    MessagesView.render();
+
+    // var successfullySent = function() {
+    //   console.log('chatterbox: user sent, custom cb');
+    // };
+
     // Parse.create();
 
     // TODO: Currently, this is all handleSubmit does.
@@ -24,6 +35,15 @@ var FormView = {
         <input type="text" name="message" id="message"/>
         <input type="submit" name="submit" class="submit"/>
       </form>
+
+      when we press sumbit,
+      create the object below
+      var message = {
+        username: 'shawndrost',
+        text: 'trololo',
+        roomname: '4chan'
+      };
+      Parse.create(message)
 
     whatever is in the box will be applied to variable
     Parse.create(variable)

@@ -20,10 +20,9 @@ var MessagesView = {
       if (message.username === null) {
         message.username = 'unknown';
       }
+      // console.log(message);
       $('#chats').append(MessageView.render(message));
     });
-    console.log('running here', Rooms._data);
-    Rooms.updateRooms(); // change for specific state update
   },
 
   renderMessage: function(message) {

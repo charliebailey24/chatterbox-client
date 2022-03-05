@@ -20,8 +20,6 @@ var Rooms = {
     // if key does not exist in obj
     // declare
     // increment
-    console.log('updateRooms is triggering');
-
     Messages._data.forEach(message => {
       if (Rooms._data[message.roomname] === undefined) {
         Rooms._data[message.roomname] = 1;
@@ -29,9 +27,6 @@ var Rooms = {
         Rooms._data[message.roomname]++;
       }
     });
-    for (var room in Rooms._data) {
-      $('#rooms select').append(`<option value="${room}">${room}</option>`);
-    }
   },
 
 
