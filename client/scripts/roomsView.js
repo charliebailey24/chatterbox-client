@@ -16,7 +16,12 @@ var RoomsView = {
   },
 
   renderRoom: function(roomname) {
-    // TODO: Render out a single room.
+    if (Rooms._data[roomname] === undefined) {
+      Rooms._data[roomname] = 1;
+    } else {
+      Rooms._data[roomname]++;
+    }
+    $('#rooms select').append(`<option value="${roomname}">${roomname}</option>`);
   },
 
   handleChange: function(event) {
