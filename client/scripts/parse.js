@@ -29,6 +29,7 @@ var Parse = {
   //
 
   readAll: function(successCB, errorCB = null) {
+    console.log(successCB);
     $.ajax({
       url: Parse.server,
       type: 'GET',
@@ -39,6 +40,17 @@ var Parse = {
         console.error('chatterbox: Failed to fetch messages', error);
       }
     });
+    /*
+      success
+      Type: Function( Anything data, String textStatus, jqXHR jqXHR )
+      A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the dataType parameter or the dataFilter callback function, if specified; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object. As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event.
+      data, string, obj
+
+      error
+      Type: Function( jqXHR jqXHR, String textStatus, String errorThrown )
+      A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are "timeout", "error", "abort", and "parsererror". When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error." (in HTTP/2 it may instead be an empty string) As of jQuery 1.5, the error setting can accept an array of functions. Each function will be called in turn. Note: This handler is not called for cross-domain script and cross-domain JSONP requests. This is an Ajax Event.
+
+    */
   }
 
 };

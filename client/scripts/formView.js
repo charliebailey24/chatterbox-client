@@ -18,8 +18,12 @@ var FormView = {
       text: $('#message').val(),
       roomname: $('#rooms select').val()
     };
-    Parse.create(obj);
-    MessagesView.render();
+    Parse.create(obj, App.updateState);
+
+    // message ->      server
+    //      here
+    //server - >    client its ok to refresh
+    //      here
 
     // var successfullySent = function() {
     //   console.log('chatterbox: user sent, custom cb');
